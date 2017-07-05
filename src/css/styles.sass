@@ -32,19 +32,21 @@ body
   display: flex
   flex-flow: row
   justify-content: flex-start
-  border: 2px solid white
+  border: 2px solid #fff
   border-radius: 10px
   min-height: 50px
 .wrap-elem
   margin: $margin
   .drag-elem
-    width: 100px
-    height: 100px
+    width: 200px
+    height: 300px
     padding: .5em
     background: rgba(0,0,40,.5)
     border-radius: 1em
     user-select: none
     cursor: pointer
+    img
+      width: 100%
     &:active
       -webkit-animation: jelly .4s
       -moz-animation:    jelly .4s
@@ -53,7 +55,15 @@ body
       cursor: move
       z-index: 999
   .taken
-    box-shadow: 0 0 15px 5px rgba(0,0,0,.5)
+    box-shadow: 0 0 20px 5px rgba(0,0,0,.5)
+    border: 1px solid $color
+.fall
+  -webkit-animation: fall .2s
+  -moz-animation:    fall .2s
+  -o-animation:      fall .2s
+  animation:         fall .2s
+
+// jelly take animation
 @keyframes jelly
   0%
     transform: scale(1)
@@ -65,3 +75,16 @@ body
     transform: scale(1.1)
   100%
     transform: scale(1)
+
+// fall animate
+@keyframes fall
+  0%
+    box-shadow: 0 0 5px 3px $color
+  25%
+    box-shadow: 0 0 5px 6px $color
+  50%
+    box-shadow: 0 0 5px 9px $color
+  75%
+    box-shadow: 0 0 10px 12px $color
+  100%
+    box-shadow: 0 0 20px 15px $color

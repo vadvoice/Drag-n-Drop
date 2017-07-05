@@ -24,6 +24,7 @@ for (var i = 0; i < dragElems.length; i++) {
 
       document.onmousemove = function(e) {
         moveAt(e);
+
       }
       document.onmouseup = (e) => {
         dragElem.classList.remove('taken');
@@ -34,17 +35,16 @@ for (var i = 0; i < dragElems.length; i++) {
       function searchPlace (e) {
         var elem = e.target;
         elem = filterDragElem(elem)
-        console.log(elem)
-        elem.style.pointerEvents = 'none'
+        elem.style.pointerEvents = 'none';
         var dropArea = document.elementFromPoint(e.pageX, e.pageY);
-        elem.style.pointerEvents = 'auto'
+        elem.style.pointerEvents = 'auto';
 
-        // debugger
         if( dropArea.className.search('drop-area') >= 0 ) {
           elem.style.position = 'relative';
+          elem.classList.add('fall');
           dropArea.appendChild(elem.parentNode);
-          elem.style.left = 0
-          elem.style.top = 0
+          elem.style.left = 0;
+          elem.style.top = 0;
         }
       }
   })
@@ -62,5 +62,5 @@ function filterDragElem(dragElem) {
       return
     }
   }
-  return dragElem
+  return dragElem;
 }
