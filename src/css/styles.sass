@@ -62,6 +62,10 @@ body
   -moz-animation:    fall .2s
   -o-animation:      fall .2s
   animation:         fall .2s
+// .backToHome
+//   position: relative !important
+//   top: 0 !important
+//   left: 0 !important
 
 // jelly take animation
 @keyframes jelly
@@ -90,3 +94,11 @@ body
   100%
     box-shadow: 0 0 20px 15px $color
     transform: scale(1)
+
+// hide element
+@keyframes hide
+  0%
+    transform: rotateX(0)
+
+  100%
+    transform: rotateX(90deg)

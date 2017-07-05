@@ -45,6 +45,18 @@ for (var i = 0; i < dragElems.length; i++) {
         dropArea.appendChild(elem );
         elem.style.left = 0;
         elem.style.top = 0;
+      } else {
+        setTimeout( ()=>{
+          var dragArea = document.getElementsByClassName('drag-area')[0];
+          dragArea.appendChild(elem)
+          elem.style.animation = 'hide .3s'
+          setTimeout( ()=>{
+            elem.style.position = 'relative';
+            elem.style.left = 0;
+            elem.style.top = 0;
+          }, 300)
+
+        }, 200)
       }
     }
   })
