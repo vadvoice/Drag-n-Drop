@@ -1,5 +1,4 @@
 var dragElems = document.getElementsByClassName('drag-elem');
-console.log(dragElems);
 for (var i = 0; i < dragElems.length; i++) {
   dragElems[i].addEventListener('mousedown', (e) => {
     if (e.which != 1) { // right click
@@ -19,10 +18,25 @@ for (var i = 0; i < dragElems.length; i++) {
     var shiftY = e.pageY - coords.top;
     moveAt(e)
     dragElem.style.position = 'absolute';
+
     // move function
     function moveAt(e) {
       dragElem.style.left = e.pageX - shiftX + 'px';
       dragElem.style.top = e.pageY - shiftY + 'px';
+
+      // super rules
+      if ( parseFloat(dragElem.style.left) < 0 ) {
+        dragElem.style.left = 0
+      }
+      if ((parseFloat(dragElem.style.left) + dragElem.offsetWidth) > window.innerWidth) {
+        dragElem.style.left = window.innerWidth - dragElem.offsetWidth + 'px'
+      }
+      if (parseFloat(dragElem.style.top) < 0 ) {
+        dragElem.style.top = 0
+      }
+      if ( (parseFloat(dragElem.style.top) + dragElem.offsetHeight) > window.innerHeight ) {
+        dragElem.style.top = window.innerHeight - dragElem.offsetHeight + 'px'
+      }
     }
 
     document.onmousemove = function(e) {
