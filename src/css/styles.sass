@@ -24,39 +24,39 @@ body
 .drag-area
   display: flex
   flex-flow: row
-  justify-content: flex-start
+  justify-content: space-around
+  padding: $padding
   border: 2px solid darkblue
   border-radius: 10px
   min-height: 50px
 .drop-area
   display: flex
   flex-flow: row
-  justify-content: flex-start
+  justify-content: space-around
+  padding: $padding
   border: 2px solid #fff
   border-radius: 10px
   min-height: 50px
-.wrap-elem
-  margin: $margin
-  .drag-elem
+.drag-elem
+  width: 200px
+  height: 300px
+  padding: .5em
+  background: rgba(0,0,40,.5)
+  border-radius: 1em
+  user-select: none
+  cursor: pointer
+  img
     width: 200px
-    height: 300px
-    padding: .5em
-    background: rgba(0,0,40,.5)
-    border-radius: 1em
-    user-select: none
-    cursor: pointer
-    img
-      width: 100%
-    &:active
-      -webkit-animation: jelly .4s
-      -moz-animation:    jelly .4s
-      -o-animation:      jelly .4s
-      animation:         jelly .4s
-      cursor: move
-      z-index: 999
-  .taken
-    box-shadow: 0 0 20px 5px rgba(0,0,0,.5)
-    border: 1px solid $color
+  &:active
+    -webkit-animation: jelly .4s
+    -moz-animation:    jelly .4s
+    -o-animation:      jelly .4s
+    animation:         jelly .4s
+    cursor: move
+    z-index: 999
+.taken
+  box-shadow: 0 0 20px 5px rgba(0,0,0,.5)
+  border: 1px solid $color
 .fall
   -webkit-animation: fall .2s
   -moz-animation:    fall .2s
@@ -80,6 +80,7 @@ body
 @keyframes fall
   0%
     box-shadow: 0 0 5px 3px $color
+    transform: scale(.9)
   25%
     box-shadow: 0 0 5px 6px $color
   50%
@@ -88,3 +89,4 @@ body
     box-shadow: 0 0 10px 12px $color
   100%
     box-shadow: 0 0 20px 15px $color
+    transform: scale(1)
