@@ -5,7 +5,8 @@ body {
 .drag-area {
   display: flex;
   flex-flow: row;
-  justify-content: flex-start;
+  justify-content: space-around;
+  padding: 0.5em;
   border: 2px solid darkblue;
   border-radius: 10px;
   min-height: 50px; }
@@ -13,30 +14,39 @@ body {
 .drop-area {
   display: flex;
   flex-flow: row;
-  justify-content: flex-start;
-  border: 2px solid white;
+  justify-content: space-around;
+  padding: 0.5em;
+  border: 2px solid #fff;
   border-radius: 10px;
   min-height: 50px; }
 
-.wrap-elem {
-  margin: 1em; }
-  .wrap-elem .drag-elem {
-    width: 100px;
-    height: 100px;
-    padding: .5em;
-    background: rgba(0, 0, 40, 0.5);
-    border-radius: 1em;
-    user-select: none;
-    cursor: pointer; }
-    .wrap-elem .drag-elem:active {
-      -webkit-animation: jelly .4s;
-      -moz-animation: jelly .4s;
-      -o-animation: jelly .4s;
-      animation: jelly .4s;
-      cursor: move;
-      z-index: 999; }
-  .wrap-elem .taken {
-    box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.5); }
+.drag-elem {
+  width: 200px;
+  height: 300px;
+  padding: .5em;
+  background: rgba(0, 0, 40, 0.5);
+  border-radius: 1em;
+  user-select: none;
+  cursor: pointer; }
+  .drag-elem img {
+    width: 200px; }
+  .drag-elem:active {
+    -webkit-animation: jelly .4s;
+    -moz-animation: jelly .4s;
+    -o-animation: jelly .4s;
+    animation: jelly .4s;
+    cursor: move;
+    z-index: 999; }
+
+.taken {
+  box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.5);
+  border: 1px solid #ddd; }
+
+.fall {
+  -webkit-animation: fall .2s;
+  -moz-animation: fall .2s;
+  -o-animation: fall .2s;
+  animation: fall .2s; }
 
 @keyframes jelly {
   0% {
@@ -49,3 +59,23 @@ body {
     transform: scale(1.1); }
   100% {
     transform: scale(1); } }
+
+@keyframes fall {
+  0% {
+    box-shadow: 0 0 5px 3px #ddd;
+    transform: scale(0.9); }
+  25% {
+    box-shadow: 0 0 5px 6px #ddd; }
+  50% {
+    box-shadow: 0 0 5px 9px #ddd; }
+  75% {
+    box-shadow: 0 0 10px 12px #ddd; }
+  100% {
+    box-shadow: 0 0 20px 15px #ddd;
+    transform: scale(1); } }
+
+@keyframes hide {
+  0% {
+    transform: rotateX(0); }
+  100% {
+    transform: rotateX(90deg); } }
