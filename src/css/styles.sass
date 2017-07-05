@@ -1,0 +1,67 @@
+// variables
+$color: #ddd
+$backgrouund: #34495E
+$margin: 1em
+$padding: .5em
+
+// mixins
+=border-radius($radius)
+  -webkit-border-radius: $radius
+  -moz-border-radius:    $radius
+  -ms-border-radius:     $radius
+  border-radius:         $radius
+=border($width)
+  -webkit-border: $width solid $color
+  -moz-border:    $width solid $color
+  -ms-border:     $width solid $color
+  border:         $width solid $color
+
+
+//styles
+body
+  background: $backgrouund
+  color: $color
+.drag-area
+  display: flex
+  flex-flow: row
+  justify-content: flex-start
+  border: 2px solid darkblue
+  border-radius: 10px
+  min-height: 50px
+.drop-area
+  display: flex
+  flex-flow: row
+  justify-content: flex-start
+  border: 2px solid white
+  border-radius: 10px
+  min-height: 50px
+.wrap-elem
+  margin: $margin
+  .drag-elem
+    width: 100px
+    height: 100px
+    padding: .5em
+    background: rgba(0,0,40,.5)
+    border-radius: 1em
+    user-select: none
+    cursor: pointer
+    &:active
+      -webkit-animation: jelly .4s
+      -moz-animation:    jelly .4s
+      -o-animation:      jelly .4s
+      animation:         jelly .4s
+      cursor: move
+      z-index: 999
+  .taken
+    box-shadow: 0 0 15px 5px rgba(0,0,0,.5)
+@keyframes jelly
+  0%
+    transform: scale(1)
+  25%
+    transform: scale(1.4)
+  50%
+    transform: scale(1)
+  75%
+    transform: scale(1.1)
+  100%
+    transform: scale(1)
