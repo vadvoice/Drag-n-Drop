@@ -12,4 +12,4 @@ gulp
 
 ## Tech
 
-demo version: https://willfulaversion.github.io/Drag-n-Drop/
+demo version: https://vadvoice.github.io/Drag-n-Drop/
